@@ -1,26 +1,87 @@
 @import "tailwindcss";
+@import "@heroui/styles";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* generated from: https://heroui.com/en/themes?chroma=0.15468732786646439&hue=78.41141320902737&lightness=0.8348432193150961&base=0.0038 */
+
+:root,
+.dark,
+.default,
+[data-theme="dark"],
+[data-theme="default"] {
+  color-scheme: dark;
+  /* Theme Colors (Dark Mode) */
+  --accent: oklch(83.48% 0.1547 78.41);
+  --accent-foreground: oklch(15% 0.03 78.41);
+  --background: oklch(12% 0.0038 78.41);
+  --border: oklch(28% 0.0038 78.41);
+  --danger: oklch(59.4% 0.1982 3.58);
+  --danger-foreground: oklch(99.11% 0 0);
+  --default: oklch(27.4% 0.0038 78.41);
+  --default-foreground: oklch(99.11% 0 0);
+  --field-background: oklch(21.03% 0.0076 78.41);
+  --field-border: transparent;
+  --field-foreground: oklch(99.11% 0.0038 78.41);
+  --field-placeholder: oklch(70.5% 0.0076 78.41);
+  --focus: oklch(83.48% 0.1547 78.41);
+  --foreground: oklch(99.11% 0.0038 78.41);
+  --muted: oklch(70.5% 0.0076 78.41);
+  --overlay: oklch(21.03% 0.0076 78.41);
+  --overlay-foreground: oklch(99.11% 0.0038 78.41);
+  --scrollbar: oklch(70.5% 0.0038 78.41);
+  --segment: oklch(39.64% 0.0038 78.41);
+  --segment-foreground: oklch(99.11% 0.0038 78.41);
+  --separator: oklch(25% 0.0038 78.41);
+  --success: oklch(73.29% 0.195 129.76);
+  --success-foreground: oklch(21.03% 0.0059 129.76);
+  --surface: oklch(21.03% 0.0076 78.41);
+  --surface-foreground: oklch(99.11% 0.0038 78.41);
+  --surface-secondary: oklch(25.7% 0.0057 78.41);
+  --surface-secondary-foreground: oklch(99.11% 0.0038 78.41);
+  --surface-tertiary: oklch(27.21% 0.0057 78.41);
+  --surface-tertiary-foreground: oklch(99.11% 0.0038 78.41);
+  --warning: oklch(82.03% 0.1399 55.29);
+  --warning-foreground: oklch(21.03% 0.0059 55.29);
+
+  --radius: 0.5rem;
+  --field-radius: 0.75rem;
+
+  --font-sans: var(--font-inter);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  body {
+    @apply bg-background text-foreground/90;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  ::selection {
+    @apply bg-accent-soft;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .link {
+    @apply text-[length:inherit] underline decoration-accent decoration-[0.0625em] underline-offset-[0.25em] hover:decoration-accent hover:decoration-[0.125em];
+  }
+
+  .typography--color-default {
+    @apply text-inherit;
+
+    &.typography--h1,
+    &.typography--h2,
+    &.typography--h3,
+    &.typography--h4,
+    &.typography--h5,
+    &.typography--h6 {
+      @apply text-foreground;
+    }
+  }
+}
+
+@custom-variant hover {
+  @media (hover: hover) {
+    &:hover,
+    &[data-hovered="true"] {
+      @slot;
+    }
+  }
 }

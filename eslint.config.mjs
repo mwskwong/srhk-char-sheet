@@ -125,6 +125,9 @@ const eslintConfig = defineConfig(
             props: {
               properties: false,
             },
+            params: {
+              parameters: false,
+            },
           },
         },
       ],
