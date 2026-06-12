@@ -19,7 +19,7 @@ const nextConfig: NextConfig = {
   rewrites: () => [
     {
       source: "/",
-      destination: "/mc",
+      destination: "/pc",
     },
   ],
   experimental: {
